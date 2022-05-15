@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Login"
+    tools:ignore="MissingDefaultResource"
+    android:background="@color/light_blue"
+    >
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:scaleType="fitXY"
+        app:srcCompat="@drawable/app_logo"
+         />
+
+    <com.github.florent37.materialtextfield.MaterialTextField
+        android:id="@+id/usernameField"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="280dp"
+        app:mtf_image="@drawable/ic_username"
+        app:mtf_labelColor="@color/black">
+
+        <EditText
+            android:id="@+id/etLoginUsername"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Username"
+            android:textColor="#333"
+            android:textSize="20sp" />
+
+    </com.github.florent37.materialtextfield.MaterialTextField>
+
+    <com.github.florent37.materialtextfield.MaterialTextField
+        android:id="@+id/passwordField"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/usernameField"
+        android:layout_centerInParent="true"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        app:mtf_image="@drawable/ic_password"
+        app:mtf_labelColor="@color/black">
+
+        <EditText
+            android:id="@+id/etLoginPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Password"
+            android:inputType="textPassword"
+            android:textColor="#333"
+            android:textSize="20sp" />
+
+    </com.github.florent37.materialtextfield.MaterialTextField>
+
+    <com.dd.CircularProgressButton
+        android:id="@+id/btLogin"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_below="@+id/passwordField"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="10dp"
+        android:fontFamily="sans-serif-black"
+        android:padding="5dp"
+        android:textColor="@color/black"
+        android:textSize="15sp"
+        app:cpb_colorIndicator="@color/gray"
+        app:cpb_colorProgress="@color/white"
+        app:cpb_cornerRadius="10dp"
+        app:cpb_selectorIdle="@color/white"
+        app:cpb_textComplete="Success!"
+        app:cpb_textError="Incorrect"
+        app:cpb_textIdle="Log In" />
+
+    <com.dd.CircularProgressButton
+        android:id="@+id/btSignUp"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_below="@+id/btLogin"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="10dp"
+        android:fontFamily="sans-serif-black"
+        android:padding="5dp"
+        android:textColor="@color/black"
+        android:textSize="15sp"
+        app:cpb_colorIndicator="@color/gray"
+        app:cpb_colorProgress="@color/white"
+        app:cpb_cornerRadius="10dp"
+        app:cpb_selectorIdle="@color/white"
+        app:cpb_textComplete="Success!"
+        app:cpb_textError="Incorrect"
+        app:cpb_textIdle="Signup" />
+
+</RelativeLayout>

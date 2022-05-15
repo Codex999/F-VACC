@@ -1,0 +1,329 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SignUp"
+    android:background="@color/light_blue"
+    >
+
+    <ScrollView
+        android:id="@+id/svFirststep"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cvUserImage"
+                android:layout_width="150dp"
+                android:layout_height="180dp"
+                android:layout_gravity="center"
+                >
+
+                <Button
+                    android:id="@+id/btUploadUserImage"
+                    android:layout_width="match_parent"
+                    android:layout_height="180dp"
+                    android:text="Click here to upload your image" />
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <TextView
+                android:id="@+id/tvSignupLabel0"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="Account Details"
+                android:textSize="18dp" />
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etSignupEmail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:hint="Email" />
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etSignupUsername"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:hint="Username" />
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etSignupPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:hint="Password" />
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etSignupConfirmPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:hint="Confirm Password" />
+
+            <TextView
+                android:id="@+id/tvPasswordError"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Password not matched!"
+                android:textColor="@color/red"
+                android:visibility="gone"
+                android:textSize="13dp" />
+
+            <TextView
+                android:id="@+id/tvSignupLabel1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="Personal Details"
+                android:textSize="18dp" />
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etSignupFirstname"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:hint="Firstname" />
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etSignupMiddlename"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:hint="Middlename" />
+
+
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etSignupLastname"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:hint="Lastname" />
+
+            <LinearLayout
+                android:id="@+id/llSignupAddress1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etAddressBlock"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:layout_weight="1"
+                    android:hint="Block" />
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etAddressStreet"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:layout_weight="3"
+                    android:hint="Street" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/llSignupAddress2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etAddressBarangay"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:hint="Barangay" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/llSignupAddress3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/llSignupAddress2"
+                android:orientation="horizontal">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etAddressCity"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:layout_weight="3"
+                    android:hint="City" />
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etAddressZip"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:layout_weight="1"
+                    android:hint="Zip Code" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tvSignupLabel2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="Vaccination Details"
+                android:textSize="18dp" />
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cvVaccCard"
+                android:layout_width="match_parent"
+                android:layout_height="180dp"
+                android:layout_marginTop="5dp"
+                >
+
+                <Button
+                    android:id="@+id/btUploadVaccImage"
+                    android:layout_width="match_parent"
+                    android:layout_height="180dp"
+                    android:text="Click here to upload your vaccine card." />
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.chivorn.smartmaterialspinner.SmartMaterialSpinner
+                android:id="@+id/spDose"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:spinnerMode="dropdown"
+                app:smsp_floatingLabelText="Dose"
+                />
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etSignupFirstdose"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:hint="First Dose Vaccine" />
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etSignupFirstdoseSite"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:hint="First Dose Site" />
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etSignupFirstdoseDate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:hint="First Dose Date" />
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etSignupSeconddose"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:hint="Second Dose Vaccine" />
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etSignupSeconddoseSite"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:hint="Second Dose Site" />
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etSignupSeconddoseDate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:hint="Second Dose Date" />
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etSignupBooster"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:hint="Booster" />
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etSignupBoosterSite"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:hint="Booster Dose Site" />
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etSignupBoosterDate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:hint="Booster Date" />
+
+            <CheckBox
+                android:id="@+id/cbCertify"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="I hereby certify that the information provided above is true and correct."
+                android:textSize="19dp"
+                />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btSignup"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:backgroundTint="@color/white"
+                android:textColor="@color/black"
+                android:enabled="false"
+                android:text="Sign up"
+                />
+
+        </LinearLayout>
+    </ScrollView>
+
+    <TextView
+        android:id="@+id/tvSignupLabel4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="170dp"
+        android:layout_marginHorizontal="30dp"
+        android:text="An OTP is sent to "
+        android:textSize="18dp" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/etSignupOtp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_centerInParent="true"
+        android:hint="OTP Code" />
+
+    <TextView
+        android:id="@+id/tvOtpError"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:layout_below="@+id/etSignupOtp"
+        android:layout_marginLeft="30dp"
+        android:textColor="@color/red"
+        android:text="OTP not matched"
+        android:textSize="14dp" />
+
+</RelativeLayout>
