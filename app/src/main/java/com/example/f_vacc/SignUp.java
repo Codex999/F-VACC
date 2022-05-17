@@ -65,6 +65,8 @@ public class SignUp extends AppCompatActivity {
     private Bitmap userImage, userVacccard;
     private SmartMaterialSpinner spDose;
     private String etSignupEmailString, etSignupUsernameString, etSignupPasswordString, etSignupConfirmPasswordString, etSignupFirstnameString, etSignupMiddlenameString, etSignupLastnameString, etAddressBlockString, etAddressStreetString, etAddressBarangayString, etAddressCityString, etAddressZipString, etSignupFirstdoseString, etSignupFirstdoseSiteString, etSignupFirstdoseDateString, etSignupSeconddoseString, etSignupSeconddoseSiteString, etSignupSeconddoseDateString, etSignupBoosterString, doseString, etSignupBoosterDateString, etSignupBoosterSiteString, otpString;
+    String dbQueryFdose, dbQuerySdose, dbQueryBooster;
+    Integer dose;
     private ScrollView svFirststep;
 
     @Override
@@ -284,12 +286,13 @@ public class SignUp extends AppCompatActivity {
                         etSignupBooster.setVisibility(View.GONE);
                         etSignupBoosterSite.setVisibility(View.GONE);
                         etSignupBoosterDate.setVisibility(View.GONE);
-                        etSignupSeconddoseString = "";
-                        etSignupSeconddoseDateString = "";
-                        etSignupSeconddoseSiteString = "";
-                        etSignupBoosterString = "";
-                        etSignupBoosterSiteString = "";
-                        etSignupBoosterDateString = "";
+                        etSignupSeconddoseString = null;
+                        etSignupSeconddoseDateString = null;
+                        etSignupSeconddoseSiteString = null;
+                        etSignupBoosterString = null;
+                        etSignupBoosterSiteString = null;
+                        etSignupBoosterDateString = null;
+                        dose = 0;
                         break;
                     case 1:
                         etSignupFirstdose.setVisibility(View.VISIBLE);
@@ -304,6 +307,7 @@ public class SignUp extends AppCompatActivity {
                         etSignupBoosterString = "";
                         etSignupBoosterSiteString = "";
                         etSignupBoosterDateString = "";
+                        dose = 1;
                         break;
                     case 2:
                         etSignupFirstdose.setVisibility(View.VISIBLE);
@@ -315,6 +319,7 @@ public class SignUp extends AppCompatActivity {
                         etSignupBooster.setVisibility(View.VISIBLE);
                         etSignupBoosterSite.setVisibility(View.VISIBLE);
                         etSignupBoosterDate.setVisibility(View.VISIBLE);
+                        dose = 2;
                         break;
                 }
             }
@@ -358,31 +363,80 @@ public class SignUp extends AppCompatActivity {
                 String fileName = etSignupUsernameString + "_" + dtf.format(now);
 
                 DatabaseAccess dbInsertInfos = new DatabaseAccess(currentContext);
-                dbInsertInfos.executeNonQuery("INSERT INTO persons(firstname, middlename, lastname, dose, fdose_date, sdose_date, booster_date, fvaccine, svaccine, booster, fvacsite, svacsite, bvacsite, block, street, brgy, city, zip, username, password, email, profile, vacc_card) VALUES('" +
-                        etSignupFirstnameString + "', '" +
-                        etSignupMiddlenameString + "', '" +
-                        etSignupLastnameString + "', '" +
-                        doseString + "', '" +
-                        etSignupFirstdoseDateString + "', '" +
-                        etSignupSeconddoseDateString + "', '" +
-                        etSignupBoosterDateString + "', '" +
-                        etSignupFirstdoseString + "', '" +
-                        etSignupSeconddoseString + "', '" +
-                        etSignupBoosterString + "', '" +
-                        etSignupFirstdoseSiteString + "', '" +
-                        etSignupSeconddoseSiteString + "', '" +
-                        etSignupBoosterSiteString + "', '" +
-                        etAddressBlockString + "', '" +
-                        etAddressStreetString + "', '" +
-                        etAddressBarangayString + "', '" +
-                        etAddressCityString + "', '" +
-                        etAddressZipString + "', '" +
-                        etSignupUsernameString + "', '" +
-                        etSignupPasswordString + "', '" +
-                        etSignupEmailString + "', '" +
-                        fileName + ".jpg', '" +
-                        fileName+ ".jpg'" +
-                        ")");
+                switch (dose){
+                    case 0:
+                        dbInsertInfos.executeNonQuery("INSERT INTO persons(firstname, middlename, lastname, dose, fdose_date, fvaccine, fvacsite, block, street, brgy, city, zip, username, password, email, profile, vacc_card) VALUES('" +
+                                etSignupFirstnameString + "', '" +
+                                etSignupMiddlenameString + "', '" +
+                                etSignupLastnameString + "', '" +
+                                doseString + "', '" +
+                                etSignupFirstdoseDateString + "', '" +
+                                etSignupFirstdoseString + "', '" +
+                                etSignupFirstdoseSiteString + "', '" +
+                                etAddressBlockString + "', '" +
+                                etAddressStreetString + "', '" +
+                                etAddressBarangayString + "', '" +
+                                etAddressCityString + "', '" +
+                                etAddressZipString + "', '" +
+                                etSignupUsernameString + "', '" +
+                                etSignupPasswordString + "', '" +
+                                etSignupEmailString + "', '" +
+                                fileName + ".jpg', '" +
+                                fileName+ ".jpg'" +
+                                ")");
+                        break;
+                    case 1:
+                        dbInsertInfos.executeNonQuery("INSERT INTO persons(firstname, middlename, lastname, dose, fdose_date, sdose_date, fvaccine, svaccine, fvacsite, svacsite, block, street, brgy, city, zip, username, password, email, profile, vacc_card) VALUES('" +
+                                etSignupFirstnameString + "', '" +
+                                etSignupMiddlenameString + "', '" +
+                                etSignupLastnameString + "', '" +
+                                doseString + "', '" +
+                                etSignupFirstdoseDateString + "', '" +
+                                etSignupSeconddoseDateString + "', '" +
+                                etSignupFirstdoseString + "', '" +
+                                etSignupSeconddoseString + "', '" +
+                                etSignupFirstdoseSiteString + "', '" +
+                                etSignupSeconddoseSiteString + "', '" +
+                                etAddressBlockString + "', '" +
+                                etAddressStreetString + "', '" +
+                                etAddressBarangayString + "', '" +
+                                etAddressCityString + "', '" +
+                                etAddressZipString + "', '" +
+                                etSignupUsernameString + "', '" +
+                                etSignupPasswordString + "', '" +
+                                etSignupEmailString + "', '" +
+                                fileName + ".jpg', '" +
+                                fileName+ ".jpg'" +
+                                ")");
+                        break;
+                    case 2:
+                        dbInsertInfos.executeNonQuery("INSERT INTO persons(firstname, middlename, lastname, dose, fdose_date, sdose_date, booster_date, fvaccine, svaccine, booster, fvacsite, svacsite, bvacsite, block, street, brgy, city, zip, username, password, email, profile, vacc_card) VALUES('" +
+                                etSignupFirstnameString + "', '" +
+                                etSignupMiddlenameString + "', '" +
+                                etSignupLastnameString + "', '" +
+                                doseString + "', '" +
+                                etSignupFirstdoseDateString + "', '" +
+                                etSignupSeconddoseDateString + "', '" +
+                                etSignupBoosterDateString + "', '" +
+                                etSignupFirstdoseString + ", '" +
+                                etSignupSeconddoseString + "', '" +
+                                etSignupBoosterString + "', '" +
+                                etSignupFirstdoseSiteString + "', '" +
+                                etSignupSeconddoseSiteString + "', '" +
+                                etSignupBoosterSiteString + "', '" +
+                                etAddressBlockString + "', '" +
+                                etAddressStreetString + "', '" +
+                                etAddressBarangayString + "', '" +
+                                etAddressCityString + "', '" +
+                                etAddressZipString + "', '" +
+                                etSignupUsernameString + "', '" +
+                                etSignupPasswordString + "', '" +
+                                etSignupEmailString + "', '" +
+                                fileName + ".jpg', '" +
+                                fileName+ ".jpg'" +
+                                ")");
+                        break;
+                }
 
                 new RunHttpRequest().execute(new String[]{fileName, convertToBase64(userVacccard), "https://ucc-bsit-capstone-2021.com/VC Monitoring/monitoring/uploadVaccCard.php"});
 
